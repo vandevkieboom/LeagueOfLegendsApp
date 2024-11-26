@@ -1,50 +1,14 @@
-# Welcome to your Expo app 👋
+## Patch Notes
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
-
-## Get started
-
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### Features Added:
+- **String Similarity**: Players will no longer lose a life due to small spelling errors. For example, "Dr. Mundo", "Dr Mundo", and "Dr Munndo" will all be accepted as correct.
+- **Game Reset Behavior**: The game now only resets on modal close or score submit, preventing cheating by exiting out of the game.
+- **Spamming Prevention**: Spamming the save/check button no longer crashes the game. A loading state has been added to prevent this.
+- **Leaderboard Updates**: Duplicate usernames are no longer allowed on the leaderboard. If an existing user beats their previous score, their score will be updated.
+- **Save Icon**: A save icon has been added, indicating that the user cannot save without entering a username.
+- **Modal Close Button**: A close (X) button has been added to allow users to close the modal.
+- **Champion Sorting**: When the user guesses the correct champion, it will be sorted to appear at the top of the list. Upon resetting, champion positions will return to their original order.
+- **Champion Detail Page**: A detailed page has been added for each champion, including their name, title, tags, and stats displayed using a stack layout on top of the index.
+- **Stats Visuals**: Stats are now represented by colored bars instead of numerical values.
+- **Champion Stats Range**: A range of stats from the minimum to maximum level of each champion has been added.
+- **Auto Focus**: Textboxes are now auto-focused when navigating to the minigame or opening the search, automatically opening the user's keyboard.
