@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   activeSortText: {
-    color: '#b19500',
+    color: '#C89B3C',
   },
   lastModalItem: {
     paddingBottom: 20,

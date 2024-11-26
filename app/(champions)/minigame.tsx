@@ -8,6 +8,7 @@ import { Champion, HighScore } from '@/types';
 import Loading from '@/components/Loading';
 import Error from '@/components/Error';
 import stringSimilarity from 'string-similarity';
+import { Audio } from 'expo-av';
 import ChampionList from '@/components/minigamepage/GameList';
 import GuessInput from '@/components/minigamepage/GuessInput';
 import GameOverModal from '@/components/minigamepage/GameOverModal';
@@ -20,6 +21,7 @@ const Minigame = () => {
   const [isGameOver, setIsGameOver] = useState<boolean>(false);
   const [score, setScore] = useState<number | null>(null);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [sound, setSound] = useState<Audio.Sound | null>(null);
 
   const queryClient = useQueryClient();
   const { lives, setLives } = useHeaderContext();
@@ -86,12 +88,6 @@ const Minigame = () => {
     }
   };
 
-  const handleCloseModal = () => {
-    setIsGameOver(false);
-    handleReset();
-    setIsSubmitting(false);
-  };
-
   const handleGuess = () => {
     if (isSubmitting) return;
     setIsSubmitting(true);
@@ -126,6 +122,7 @@ const Minigame = () => {
             setIsSubmitting(false);
             return prevLives;
           }
+          playSound();
           return newLives;
         });
       }
@@ -147,8 +144,20 @@ const Minigame = () => {
     queryClient.invalidateQueries({ queryKey: ['champions'] });
   };
 
+  const playSound = async () => {
+    const { sound } = await Audio.Sound.createAsync(require('@/assets/audio/death.mp3'));
+    setSound(sound);
+    await sound.playAsync();
+  };
+
   const handleGameOver = () => {
     setIsGameOver(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsGameOver(false);
+    handleReset();
+    setIsSubmitting(false);
   };
 
   useEffect(() => {
@@ -162,6 +171,14 @@ const Minigame = () => {
     };
     loadGameData();
   }, []);
+
+  useEffect(() => {
+    return sound
+      ? () => {
+          sound.unloadAsync();
+        }
+      : undefined;
+  }, [sound]);
 
   useEffect(() => {
     if (score !== null) {

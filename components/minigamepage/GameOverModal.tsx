@@ -23,27 +23,28 @@ const GameOverModal: React.FC<GameOverModalProps> = ({
     <Modal animationType="fade" transparent={true} visible={isGameOver}>
       <View style={styles.modalContainer}>
         <View style={styles.modalContent}>
+          <Pressable onPress={handleCloseModal} style={styles.closeButton}>
+            <MaterialIcons name="close" size={20} color="#fff" />
+          </Pressable>
           <Text style={styles.modalTitle}>Game Over!</Text>
           <View style={styles.inputContainer}>
             <TextInput
               style={[styles.input]}
               onChangeText={setPlayerName}
               placeholder="Enter username"
-              placeholderTextColor="gray"
+              placeholderTextColor="#8a8a8a"
               value={playerName}
               onSubmitEditing={handlePostHighScore}
+              autoFocus
             />
             <Pressable onPress={handlePostHighScore} disabled={isSubmitting || !playerName.trim()}>
               <MaterialCommunityIcons
                 name={!playerName.trim() ? 'content-save-off' : 'content-save'}
                 size={34}
-                color={isSubmitting || !playerName.trim() ? 'gray' : 'white'}
+                color={isSubmitting || !playerName.trim() ? '#8a8a8a' : '#fff'}
               />
             </Pressable>
           </View>
-          <Pressable onPress={handleCloseModal}>
-            <MaterialIcons name="close" size={34} color="white" />
-          </Pressable>
         </View>
       </View>
     </Modal>
@@ -60,7 +61,7 @@ const styles = StyleSheet.create({
   modalContent: {
     backgroundColor: '#000',
     opacity: 0.9,
-    paddingVertical: 20,
+    paddingVertical: 40,
     paddingHorizontal: 10,
     width: '80%',
     borderRadius: 2,
@@ -69,8 +70,8 @@ const styles = StyleSheet.create({
   },
   modalTitle: {
     textAlign: 'center',
-    marginBottom: 10,
-    color: 'white',
+    marginBottom: 20,
+    color: '#fff',
   },
   inputContainer: {
     flexDirection: 'row',
@@ -78,12 +79,17 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
-    borderColor: 'gray',
+    borderColor: '#8a8a8a',
     borderWidth: 1,
     marginRight: 20,
     padding: 7,
     borderRadius: 2,
-    color: 'gray',
+    color: '#8a8a8a',
+  },
+  closeButton: {
+    position: 'absolute',
+    top: 5,
+    right: 5,
   },
 });
 

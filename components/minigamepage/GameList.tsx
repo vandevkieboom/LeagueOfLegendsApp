@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { View, FlatList, Image, StyleSheet } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Champion } from '@/types';
@@ -6,6 +6,22 @@ import { Champion } from '@/types';
 interface ChampionListProps {
   champions: Champion[];
   correctGuesses: string[];
+}
+
+class ChampionItem extends PureComponent<{ item: Champion; isGuessed: boolean }> {
+  render() {
+    const { item, isGuessed } = this.props;
+    return (
+      <View style={styles.item}>
+        <Image source={{ uri: item.image.loading }} style={styles.image} />
+        {isGuessed && (
+          <View style={styles.overlay}>
+            <MaterialIcons name="check" size={34} color="white" />
+          </View>
+        )}
+      </View>
+    );
+  }
 }
 
 const ChampionList = ({ champions, correctGuesses }: ChampionListProps) => {
@@ -22,17 +38,7 @@ const ChampionList = ({ champions, correctGuesses }: ChampionListProps) => {
       numColumns={5}
       renderItem={({ item }) => {
         const isGuessed = correctGuesses.some((guess) => guess.toLowerCase() === item.name.toLowerCase());
-
-        return (
-          <View style={styles.item}>
-            <Image source={{ uri: item.image.loading }} style={styles.image} />
-            {isGuessed && (
-              <View style={styles.overlay}>
-                <MaterialIcons name="check" size={34} color="white" />
-              </View>
-            )}
-          </View>
-        );
+        return <ChampionItem item={item} isGuessed={isGuessed} />;
       }}
     />
   );

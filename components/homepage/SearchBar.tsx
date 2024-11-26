@@ -9,22 +9,23 @@ interface SearchBarProps {
 const SearchBar = ({ search, setSearch }: SearchBarProps) => (
   <TextInput
     placeholder="Search Champion"
-    placeholderTextColor="gray"
+    placeholderTextColor="#8a8a8a"
     onChangeText={setSearch}
     value={search}
     style={styles.textInput}
+    autoFocus
   />
 );
 
 const styles = StyleSheet.create({
   textInput: {
-    borderColor: 'gray',
+    borderColor: '#8a8a8a',
     borderWidth: 1,
     borderRadius: 2,
     marginBottom: 12,
     marginHorizontal: 5,
     padding: 7,
-    color: 'white',
+    color: '#fff',
   },
 });
 

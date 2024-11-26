@@ -28,14 +28,14 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   statLabel: {
-    color: 'white',
+    color: '#fff',
     fontSize: 16,
-    marginBottom: 5,
+    marginBottom: 4,
     fontWeight: 'bold',
   },
   statBarBackground: {
     height: 10,
-    backgroundColor: 'gray',
+    backgroundColor: '#8a8a8a',
     borderRadius: 5,
     overflow: 'hidden',
   },

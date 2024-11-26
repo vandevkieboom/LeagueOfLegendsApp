@@ -26,8 +26,9 @@ const GuessInput: React.FC<GuessInputProps> = ({
         value={guess}
         onChangeText={setGuess}
         placeholder="Guess Champion"
-        placeholderTextColor="gray"
+        placeholderTextColor="#8a8a8a"
         onSubmitEditing={handleGuess}
+        autoFocus
       />
       <Pressable onPress={handleGuess} style={styles.checkIcon} disabled={isSubmitting}>
         <MaterialIcons name="check" size={34} color="green" />
@@ -47,12 +48,12 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
-    borderColor: 'gray',
+    borderColor: '#8a8a8a',
     borderWidth: 1,
     marginRight: 20,
     padding: 7,
     borderRadius: 2,
-    color: 'gray',
+    color: '#8a8a8a',
   },
   checkIcon: {
     marginRight: 20,

@@ -10,30 +10,35 @@ interface ChampionItemProps {
   toggleBookmark: (id: string) => void;
 }
 
-const ChampionItem = ({ item, bookmarked, toggleBookmark }: ChampionItemProps) => (
-  <Link
-    asChild
-    href={{
-      pathname: '/(champions)/[id]',
-      params: { id: item.id },
-    }}
-  >
-    <TouchableOpacity style={styles.item} activeOpacity={0.5}>
-      <Image source={{ uri: item.image.loading }} style={styles.image} />
-      <Pressable style={styles.bookmarkIcon} onPress={() => toggleBookmark(item.id.toString())}>
-        <MaterialIcons name={bookmarked ? 'bookmark-added' : 'bookmark-outline'} size={24} color="white" />
-      </Pressable>
-      <View style={styles.nameContainer}>
-        <Text style={styles.nameText} numberOfLines={1} ellipsizeMode="tail">
-          {item.name}
-        </Text>
-        <Text style={styles.description} numberOfLines={1} ellipsizeMode="tail">
-          {item.title}
-        </Text>
-      </View>
-    </TouchableOpacity>
-  </Link>
-);
+class ChampionItem extends React.PureComponent<ChampionItemProps> {
+  render() {
+    const { item, bookmarked, toggleBookmark } = this.props;
+    return (
+      <Link
+        asChild
+        href={{
+          pathname: '/[id]',
+          params: { id: item.id },
+        }}
+      >
+        <TouchableOpacity style={styles.item} activeOpacity={0.5}>
+          <Image source={{ uri: item.image.loading }} style={styles.image} />
+          <Pressable style={styles.bookmarkIcon} onPress={() => toggleBookmark(item.id.toString())}>
+            <MaterialIcons name={bookmarked ? 'bookmark-added' : 'bookmark-outline'} size={24} color="#fff" />
+          </Pressable>
+          <View style={styles.nameContainer}>
+            <Text style={styles.nameText} numberOfLines={1} ellipsizeMode="tail">
+              {item.name}
+            </Text>
+            <Text style={styles.description} numberOfLines={1} ellipsizeMode="tail">
+              {item.title}
+            </Text>
+          </View>
+        </TouchableOpacity>
+      </Link>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   item: {

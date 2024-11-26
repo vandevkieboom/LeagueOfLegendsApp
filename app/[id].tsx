@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     resizeMode: 'contain',
-    borderColor: '#b19500',
+    borderColor: '#C89B3C',
     borderWidth: 1,
   },
   detailsContainer: {
@@ -77,18 +77,18 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   name: {
-    color: 'white',
-    fontSize: 24,
+    color: '#fff',
+    fontSize: 20,
     fontWeight: 'bold',
   },
   title: {
-    color: 'gray',
-    fontSize: 18,
-    marginBottom: 8,
+    color: '#8a8a8a',
+    fontSize: 17,
   },
   tags: {
-    color: 'white',
-    fontSize: 16,
+    color: '#fff',
+    fontSize: 17,
+    fontStyle: 'italic',
   },
   statsContainer: {
     marginTop: 20,
@@ -97,12 +97,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(15, 15, 15, 1)',
     borderColor: 'rgba(20, 20, 20, 1)',
     borderWidth: 2,
-  },
-  statsTitle: {
-    color: 'white',
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 10,
   },
 });
 
