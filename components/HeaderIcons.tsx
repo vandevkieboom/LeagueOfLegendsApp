@@ -25,7 +25,7 @@ const HeaderIcons = ({ icons = [], count, lives }: HeaderIconsProps) => {
   const renderLifeIcons = () => {
     const lifeIcons = [];
     for (let i = 0; i < (lives || 0); i++) {
-      lifeIcons.push(<MaterialCommunityIcons key={i} name="heart" size={24} color="white" style={styles.lifeIcon} />);
+      lifeIcons.push(<MaterialCommunityIcons key={i} name="heart" size={24} color="#98002e" style={styles.lifeIcon} />);
     }
     return lifeIcons;
   };
@@ -40,9 +40,9 @@ const HeaderIcons = ({ icons = [], count, lives }: HeaderIconsProps) => {
             </Text>
           )}
           {icon.name === 'heart' ? (
-            <MaterialCommunityIcons name={icon.name} size={24} color="white" style={styles.headerIcon} />
+            <MaterialCommunityIcons name={icon.name} size={24} color="#fff" style={styles.headerIcon} />
           ) : (
-            <MaterialIcons name={icon.name} size={24} color="white" style={styles.headerIcon} />
+            <MaterialIcons name={icon.name} size={24} color="#fff" style={styles.headerIcon} />
           )}
         </Pressable>
       ))}
@@ -62,11 +62,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerIcon: {
-    color: 'white',
+    color: '#fff',
     marginHorizontal: 8,
   },
   countText: {
-    color: 'white',
+    color: '#fff',
     fontSize: 16,
     marginRight: -3,
     marginTop: 4,

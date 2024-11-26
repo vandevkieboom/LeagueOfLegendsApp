@@ -118,8 +118,10 @@ const Minigame = () => {
         setLives((prevLives) => {
           const newLives = (prevLives ?? 1) - 1;
           if (newLives <= 0) {
-            handleGameOver();
-            setIsSubmitting(false);
+            playSound().then(() => {
+              handleGameOver();
+              setIsSubmitting(false);
+            });
             return prevLives;
           }
           playSound();

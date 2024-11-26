@@ -10,14 +10,14 @@ const queryClient = new QueryClient();
 const StacksLayout = () => {
   return (
     <>
-      <StatusBar barStyle="light-content" backgroundColor="black" />
+      <StatusBar barStyle="light-content" backgroundColor="#000" />
       <QueryClientProvider client={queryClient}>
         <SafeAreaView style={{ flex: 1 }}>
           <HeaderProvider>
             <Stack
               screenOptions={{
                 headerShown: false,
-                headerTintColor: 'white',
+                headerTintColor: '#fff',
               }}
             >
               <Stack.Screen
