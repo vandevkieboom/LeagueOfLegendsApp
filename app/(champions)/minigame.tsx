@@ -109,9 +109,11 @@ const Minigame = () => {
             return newGuesses;
           });
           setInputBorderColor('green');
+          console.log('Correct guess:', match.name);
           setScore((prevScore) => prevScore! + 1);
         } else {
           setInputBorderColor('orange');
+          console.log('Already guessed:', match.name);
         }
       } else {
         setInputBorderColor('red');

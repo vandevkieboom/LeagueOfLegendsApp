@@ -40,10 +40,10 @@ const ChampionDetail = () => {
         </View>
       </View>
       <View style={styles.statsContainer}>
-        <StatBar label="Attack" value={champion?.info.attack ?? 0} maxValue={10} color="red" />
-        <StatBar label="Defense" value={champion?.info.defense ?? 0} maxValue={10} color="green" />
-        <StatBar label="Magic" value={champion?.info.magic ?? 0} maxValue={10} color="blue" />
-        <StatBar label="Difficulty" value={champion?.info.difficulty ?? 0} maxValue={10} color="purple" />
+        <StatBar label="Attack" value={champion?.info.attack ?? 0} maxValue={10} color="#8B0000" />
+        <StatBar label="Defense" value={champion?.info.defense ?? 0} maxValue={10} color="#006400" />
+        <StatBar label="Magic" value={champion?.info.magic ?? 0} maxValue={10} color="#00008B" />
+        <StatBar label="Difficulty" value={champion?.info.difficulty ?? 0} maxValue={10} color="#4B0082" />
       </View>
       {champion?.stats && <DetailedStats stats={champion.stats} />}
     </ScrollView>

@@ -24,7 +24,7 @@ const StacksLayout = () => {
                 name="[id]"
                 options={{
                   headerShown: true,
-                  title: 'Champion Information',
+                  title: 'Champion Informations',
                   headerStyle: {
                     backgroundColor: '#000',
                   },
